@@ -42,14 +42,14 @@ You can use UX Superpowers standalone or alongside Superpowers. When both are in
 ### From Claude Code Marketplace
 
 ```bash
-/plugin marketplace add ux-superpowers/ux-superpowers
-/plugin install ux-superpowers
+/plugin marketplace add adnanmir123/ux-superpowers
+/plugin install ux-superpowers@ux-superpowers
 ```
 
 ### Local Development
 
 ```bash
-git clone https://github.com/ux-superpowers/ux-superpowers.git
+git clone https://github.com/adnanmir123/ux-superpowers.git
 claude --plugin-dir ./ux-superpowers
 ```
 
@@ -128,3 +128,7 @@ Skills live in `skills/`. Each skill is a directory with a `SKILL.md` file.
 ## License
 
 MIT — see [LICENSE](LICENSE)
+
+## Affiliation
+
+UX Superpowers is an independent community project inspired by and designed to complement [Superpowers](https://github.com/obra/superpowers) by Jesse Vincent. It is **not affiliated with, endorsed by, or maintained by** the Superpowers project or its authors. The name reflects the complementary positioning in the workflow (UX discovery → technical brainstorming), not a shared origin.

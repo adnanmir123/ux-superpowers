@@ -18,6 +18,12 @@ jobs:
           python3 -c "import json; json.load(open('.claude-plugin/plugin.json'))"
           echo "✅ plugin.json is valid"
 
+      - name: Validate marketplace.json
+        run: |
+          echo "Checking marketplace.json exists and has required fields..."
+          python3 -c "import json; m=json.load(open('.claude-plugin/marketplace.json')); assert 'name' in m and 'owner' in m and 'plugins' in m, 'missing required fields'"
+          echo "✅ marketplace.json is valid"
+
       - name: Validate skill structure
         run: |
           echo "Checking all skills have SKILL.md..."
@@ -54,11 +60,23 @@ jobs:
             echo "✅ $skill frontmatter valid"
           done
 
-      - name: Check no files inside .claude-plugin except plugin.json
+      - name: Check only manifest files in .claude-plugin
         run: |
-          extra=$(find .claude-plugin -type f ! -name plugin.json)
+          extra=$(find .claude-plugin -type f ! -name plugin.json ! -name marketplace.json)
           if [ -n "$extra" ]; then
-            echo "❌ Extra files in .claude-plugin/: $extra"
+            echo "❌ Unexpected files in .claude-plugin/: $extra"
             exit 1
           fi
-          echo "✅ .claude-plugin/ contains only plugin.json"
+          echo "✅ .claude-plugin/ contains only plugin.json and marketplace.json"
+
+      - name: Check plugin.json and marketplace.json versions match
+        run: |
+          plugin_version=$(python3 -c "import json; print(json.load(open('.claude-plugin/plugin.json'))['version'])")
+          mp_plugin_version=$(python3 -c "import json; p=json.load(open('.claude-plugin/marketplace.json'))['plugins'][0]; print(p.get('version', 'unset'))")
+          echo "plugin.json version: $plugin_version"
+          echo "marketplace.json plugin version: $mp_plugin_version"
+          if [ "$mp_plugin_version" != "unset" ] && [ "$plugin_version" != "$mp_plugin_version" ]; then
+            echo "❌ Version mismatch between plugin.json and marketplace.json"
+            exit 1
+          fi
+          echo "✅ Versions consistent"

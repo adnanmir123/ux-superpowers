@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify tag matches plugin.json version
+        env:
+          GIT_TAG: ${{ github.ref_name }}
+        run: |
+          plugin_version=$(python3 -c "import json; print(json.load(open('.claude-plugin/plugin.json'))['version'])")
+          expected_tag="v${plugin_version}"
+          if [ "$GIT_TAG" != "$expected_tag" ]; then
+            echo "Tag $GIT_TAG does not match plugin.json version ($expected_tag)"
+            exit 1
+          fi
+          echo "Tag matches plugin version: $GIT_TAG"
+
+      - name: Extract changelog for this version
+        env:
+          GIT_TAG: ${{ github.ref_name }}
+        run: |
+          version="${GIT_TAG#v}"
+          awk -v ver="$version" '
+            /^## / {
+              if (found) exit
+              if ($0 ~ ver) { found=1; next }
+            }
+            found { print }
+          ' CHANGELOG.md > RELEASE_NOTES.md
+          if [ ! -s RELEASE_NOTES.md ]; then
+            echo "Release $GIT_TAG" > RELEASE_NOTES.md
+          fi
+          cat RELEASE_NOTES.md
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GIT_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$GIT_TAG" \
+            --title "$GIT_TAG" \
+            --notes-file RELEASE_NOTES.md
