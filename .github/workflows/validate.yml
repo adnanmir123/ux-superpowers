@@ -1,0 +1,64 @@
+name: Validate Plugin
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate plugin.json
+        run: |
+          echo "Checking plugin.json exists and is valid JSON..."
+          python3 -c "import json; json.load(open('.claude-plugin/plugin.json'))"
+          echo "✅ plugin.json is valid"
+
+      - name: Validate skill structure
+        run: |
+          echo "Checking all skills have SKILL.md..."
+          errors=0
+          for dir in skills/*/; do
+            if [ ! -f "${dir}SKILL.md" ]; then
+              echo "❌ Missing SKILL.md in ${dir}"
+              errors=$((errors + 1))
+            else
+              echo "✅ ${dir}SKILL.md exists"
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "Found $errors errors"
+            exit 1
+          fi
+
+      - name: Validate skill frontmatter
+        run: |
+          echo "Checking skills have required frontmatter..."
+          for skill in skills/*/SKILL.md; do
+            if ! head -1 "$skill" | grep -q "^---"; then
+              echo "❌ $skill missing frontmatter"
+              exit 1
+            fi
+            if ! grep -q "^name:" "$skill"; then
+              echo "❌ $skill missing name in frontmatter"
+              exit 1
+            fi
+            if ! grep -q "^description:" "$skill"; then
+              echo "❌ $skill missing description in frontmatter"
+              exit 1
+            fi
+            echo "✅ $skill frontmatter valid"
+          done
+
+      - name: Check no files inside .claude-plugin except plugin.json
+        run: |
+          extra=$(find .claude-plugin -type f ! -name plugin.json)
+          if [ -n "$extra" ]; then
+            echo "❌ Extra files in .claude-plugin/: $extra"
+            exit 1
+          fi
+          echo "✅ .claude-plugin/ contains only plugin.json"

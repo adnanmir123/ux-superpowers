@@ -1,0 +1,12 @@
+{
+  "name": "ux-superpowers",
+  "version": "1.0.0",
+  "description": "User-centered design methodology for coding agents. Grounds all development in personas, user journeys, jobs-to-be-done, telemetry, and real user data — BEFORE writing code. Designed to complement Superpowers by owning the UX discovery phase that precedes brainstorming.",
+  "author": {
+    "name": "UX Superpowers Contributors",
+    "url": "https://github.com/ux-superpowers/ux-superpowers"
+  },
+  "repository": "https://github.com/ux-superpowers/ux-superpowers",
+  "license": "MIT",
+  "keywords": ["ux", "user-experience", "personas", "user-journeys", "jobs-to-be-done", "telemetry", "research", "discovery", "design-thinking"]
+}
