@@ -1,10 +1,22 @@
 ---
 name: insight-synthesizer
 description: >
-  Use after all discovery phases are complete to synthesize personas, JTBD, journey maps,
-  and metrics into a cohesive UX Discovery Document. Identifies design principles,
-  assumptions, risks, and constraints. Produces the final artifact that anchors all
-  subsequent development.
+  Trigger whenever the user says "compile the discovery doc", "synthesize everything into
+  one document", "write the UX discovery document", "produce the final discovery artifact",
+  "consolidate personas jobs journeys and metrics", "extract design principles from our
+  discovery", "surface assumptions and risks", "create the requirements anchor", "wrap up
+  discovery", or any phrase signaling they are ready to assemble prior discovery outputs
+  into a single anchoring document. Always invoke when the user has existing persona, JTBD,
+  journey, telemetry, or research-intake artifacts and wants them fused into one cohesive
+  UX Discovery Document saved to docs/ux-discovery/ with design principles, validated and
+  unvalidated assumptions, risks, technical and business constraints, scope boundaries, and
+  next steps. This is the LAST step in the ux-superpowers discovery pipeline and the
+  canonical handoff point to superpowers:brainstorming — fire it when the user asks "we're
+  done with discovery, what's next", "ready to move to technical brainstorming", or
+  otherwise signals the discovery phase is closing. Do NOT fire for building any single
+  artifact (the dedicated sub-skill owns that), while ux-discover is still orchestrating
+  earlier phases, when the user has no prior discovery artifacts to synthesize, or for
+  general document writing, engineering RFCs, or status reports unrelated to UX discovery.
 version: 1.0.0
 ---
 

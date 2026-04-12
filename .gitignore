@@ -2,3 +2,6 @@
 node_modules/
 *.log
 .env
+
+# Local Claude Code project state (stale eval test command files, etc.)
+.claude/

@@ -1,11 +1,25 @@
 ---
 name: research-intake
 description: >
-  Use when the user provides raw research data — interview transcripts, survey results,
-  support tickets, analytics screenshots, NPS feedback, app reviews, usability test notes,
-  customer call recordings (transcribed), forum posts, or any other user signal. Processes
-  and synthesizes raw data into structured insights that feed into persona building,
-  JTBD, and journey mapping. Accepts data in any format.
+  Whenever the user hands you raw user-research artifacts — interview transcripts, survey
+  results, NPS verbatims, support tickets, app store reviews, usability test notes,
+  forum/community posts, customer emails, sales-call notes, or pasted feedback blobs —
+  trigger this skill immediately, before any downstream synthesis. Always invoke when the
+  user says things like "I have 30 interview transcripts in /tmp/interviews", "here are
+  200 NPS responses, what are the themes", "analyze these support tickets for patterns",
+  "synthesize these app store reviews", "summarize what these customers said", "extract
+  themes from these usability notes", or "go through these forum posts and find recurring
+  issues". Fire on any mention of directories or file paths like interviews/, surveys/,
+  feedback/, tickets/, reviews/, transcripts/, verbatims/, or pasted qualitative text
+  attributed to users or customers. This skill is the mandatory first stop before
+  persona-builder, jobs-to-be-done, or user-journey — its structured output (themes, pain
+  points, unmet needs, converging/diverging signals, confidence levels) is what those
+  downstream skills consume. Differentiate from generic CSV or data-analysis: this is
+  specifically for QUALITATIVE USER RESEARCH, not sales figures, financial reports,
+  engineering or access logs, or telemetry dumps. Do NOT trigger for code review of
+  research-related files, bug fixes, performance work, or non-user datasets. When in doubt
+  and the data represents real users' words, behaviors, or complaints, invoke this skill
+  rather than ad-hoc analysis.
 version: 1.0.0
 ---
 

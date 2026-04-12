@@ -1,10 +1,24 @@
 ---
 name: telemetry-designer
 description: >
-  Use when defining success metrics, KPIs, telemetry events, and measurement strategy
-  for a product or feature. Ensures every feature ships with a way to know if it's
-  working for users. Covers product analytics, operational metrics, and user satisfaction
-  signals. Produces an implementable telemetry plan.
+  Use when the user asks how to measure product or feature success, define success metrics,
+  pick a north star metric, track KPIs, design analytics events, build an instrumentation
+  plan, decide what telemetry to fire, or figure out "how will we know if this is working
+  for users" — trigger whenever users say things like "how will we measure success", "what
+  KPIs should we track", "design the analytics events for X", "we need a telemetry plan",
+  "what events should we fire", "metrics for the launch of X", or "how do we validate this
+  worked". Always invoke when defining leading indicators, guard-rail health metrics,
+  activation/retention, qualitative feedback plans (NPS, CSAT, in-app surveys), or a
+  decision framework tying metrics to actions; this skill produces an implementable
+  user-outcome measurement plan with event specs, properties, baselines, targets, and
+  response plans. This is strictly for USER-OUTCOME and product analytics — measuring
+  whether users are succeeding with the product. Do NOT trigger for engineering or
+  operational observability such as p95 latency, error-rate dashboards, SLO/SLI definition
+  for infra, APM, log aggregation, Datadog/Prometheus setup, database query tuning,
+  performance optimization, generic "add logging" requests, or bug triage — those are
+  SRE/observability concerns, not product telemetry. Skip when ux-discover is already
+  orchestrating. When a request mixes product metrics and ops metrics, trigger on the
+  product-metric portion only.
 version: 1.0.0
 ---
 

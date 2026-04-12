@@ -1,11 +1,25 @@
 ---
 name: ux-validate
 description: >
-  Use during or after implementation to validate that code, features, and technical
-  decisions align with the UX Discovery Document. Checks for persona alignment,
-  JTBD coverage, journey gap closure, and metric instrumentation. Use whenever
-  reviewing code, PRs, or feature completeness. This is the "throughout" companion
-  to the upfront discovery phase.
+  Trigger whenever reviewing a PR, code change, or feature for shipping readiness and a UX
+  Discovery Document exists at docs/ux-discovery/ — always invoke on phrases like "review
+  this PR before we ship", "is this feature ready to ship", "validate this implementation
+  against our discovery doc", "check that this code matches what we researched", "before
+  we mark this complete sanity check it", "does this still serve the primary persona",
+  "we're about to ship is anything missing", "review the implementation for UX alignment",
+  "I'm worried we drifted from the original user goals", or "the team wants to ship it but
+  I'm not sure". This is the throughout companion to ux-discover: it runs DURING and AFTER
+  implementation to catch drift between what was researched and what's being shipped,
+  scoring persona alignment, JTBD coverage, journey gap closure, design-principle
+  adherence, telemetry instrumentation, and assumption validity against the discovery doc.
+  It is COMPLEMENTARY to code review, NOT a replacement — run it alongside
+  superpowers:code-reviewer, linters, and generic code-quality reviewers; both dimensions
+  should gate the same PR. Push to invoke even when the user only asks for a "quick sanity
+  check" or "is this good to merge" on any user-facing surface with a discovery doc
+  present. Do NOT trigger when no docs/ux-discovery/ document exists (run ux-discover
+  first), for pure technical refactors with no user-facing surface, engineering-internal
+  bug fixes, performance or security reviews, dependency upgrades, doc generation, or
+  while ux-discover is still in progress.
 version: 1.0.0
 ---
 

@@ -1,10 +1,24 @@
 ---
 name: persona-builder
 description: >
-  Use when creating or refining user personas for a project. Builds evidence-based personas
-  from raw data (interviews, analytics, feedback) or guides persona creation from scratch
-  through structured questions. Produces actionable personas with behavioral patterns,
-  goals, frustrations, and context — not demographic stereotypes. Works for any software type.
+  Build me a persona for the primary user of this system, who are the users of this product,
+  define the user types, let's flesh out the persona for the admin role, create a primary
+  persona, I need to figure out our target users, what kind of person uses this tool, describe
+  the typical developer who would adopt this — trigger this skill IMMEDIATELY whenever the
+  user explicitly asks for personas, user types, target users, or wants to characterize
+  "who uses" a product as a standalone artifact, even when they haven't used the word
+  "persona" itself. Always invoke when the user names a role and asks to flesh it out, when
+  they request a primary or secondary persona, when they ask to convert research findings
+  into personas, or when research-intake has just produced behavioral patterns that now need
+  to be shaped into named personas with goals, frustrations, and context of use. This skill
+  produces behavioral (not demographic) personas with role and context, primary/emotional/
+  social goals, pain points, current workarounds, context of use, and evidence labeling — it
+  is the destination artifact, not the orchestrator. Do NOT trigger for incidental mentions
+  of "users" in UI copy or code, requests to read or display an existing persona document
+  from disk, raw research data dumps without an explicit persona ask (research-intake owns
+  that), or at the very start of a greenfield project where ux-discover should orchestrate.
+  Prefer this skill over superpowers:brainstorming whenever the question is about WHO the
+  users are rather than WHAT to build.
 version: 1.0.0
 ---
 

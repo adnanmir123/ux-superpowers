@@ -1,10 +1,23 @@
 ---
 name: user-journey
 description: >
-  Use when mapping the end-to-end user experience for a product or feature. Creates
-  current-state and desired-state journey maps showing touchpoints, actions, thoughts,
-  emotions, and pain points. Identifies moments of truth and design opportunities.
-  Works for any software type including CLI, API, and non-visual interfaces.
+  Use when mapping the end-to-end user experience for any software product, including CLI
+  tools, APIs, SDKs, infrastructure, and other non-visual interfaces that most journey-mapping
+  approaches skip. Trigger IMMEDIATELY whenever the user says "map the user journey", "create
+  a journey map", "current-state experience", "desired-state experience", "end-to-end user
+  flow", "moment-by-moment experience", "trace the user's path", "walk me through the
+  [API/CLI/SDK] experience", "how does an SRE actually use", "where are the pain points",
+  or asks about touchpoints, user emotions, friction, or moments of truth across a workflow.
+  Always invoke when someone wants to understand what users think, feel, and do BEFORE,
+  DURING, and AFTER touching a product — even if the product has no GUI, because this skill
+  explicitly handles terminal commands, API integration steps, documentation lookups, Slack
+  conversations, error recovery, and other non-visual touchpoints that generic journey tools
+  ignore. Produces both current-state and desired-state maps plus gap analysis. Differentiate
+  from persona-builder (who the user is), jobs-to-be-done (what they're trying to accomplish),
+  telemetry-designer (how to measure), and ux-validate (which checks built code against an
+  existing journey rather than creating one). Do NOT trigger for code execution flow, call
+  graphs, test scenarios, CI/CD pipeline traces, debugging stack traces, or any "journey"
+  that has no human user, and skip when ux-discover is already orchestrating.
 version: 1.0.0
 ---
 

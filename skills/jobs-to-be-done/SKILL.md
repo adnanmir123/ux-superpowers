@@ -1,10 +1,24 @@
 ---
 name: jobs-to-be-done
 description: >
-  Use when defining what users are trying to accomplish with a product or feature.
-  Applies the Jobs-to-be-Done framework to uncover functional, emotional, and social
-  jobs users hire a product to do. Produces structured job statements that drive
-  feature prioritization. Works for any software type.
+  Trigger this skill whenever the user asks "what are users actually trying to do", "what
+  jobs are users hiring this for", "what's the underlying user motivation", "let's do a JTBD
+  analysis", "jobs-to-be-done framework", or talks about functional, emotional, and social
+  jobs, outcome expectations, or opportunity scoring. Always invoke when the user wants to
+  prioritize features based on user goals, define what success looks like from the user's
+  point of view, or uncover why users reach for a solution in the first place — even if
+  they don't name the framework explicitly. Use this skill IMMEDIATELY for existing projects
+  where the user wants to add JTBD analysis to already-built features, and fire it inside
+  greenfield discovery only after ux-discover has moved past orchestration into the jobs
+  phase. Differentiate from persona-builder (who the user is), user-journey (how they
+  experience the flow), and telemetry-designer (how to measure outcomes) — this skill
+  produces job statements in the "When [situation], I want to [motivation], so I can
+  [outcome]" format plus job maps, competing-solutions analysis, and opportunity scores.
+  Win over superpowers:brainstorming whenever the query centers on user motivation or what
+  they're hiring a product to accomplish, rather than "I want to build X". Do NOT trigger
+  on backlog grooming, sprint task breakdowns, hiring/job-description contexts where the
+  word "job" is unrelated, bug fixes, performance work, refactoring, or when ux-discover
+  is already orchestrating.
 version: 1.0.0
 ---
 

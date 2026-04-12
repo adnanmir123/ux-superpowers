@@ -1,0 +1,82 @@
+[
+  {
+    "query": "ok so I want to build a thing that helps freelance designers track their invoices and chase late payments. like a CLI tool i think? maybe with a web dashboard later",
+    "should_trigger": true
+  },
+  {
+    "query": "I'm planning a new internal tool for our SRE team — a CLI for managing kubernetes namespace lifecycles. before I start writing code, what should I think about?",
+    "should_trigger": true
+  },
+  {
+    "query": "I have ~30 customer interview transcripts in /tmp/interviews/*.md from last quarter about why people churned from our analytics product. I want to use these to design v2 of our onboarding flow",
+    "should_trigger": true
+  },
+  {
+    "query": "thinking about building a small ios app for tracking my toddler's nap schedule and sharing it with my partner. where do i start?",
+    "should_trigger": true
+  },
+  {
+    "query": "we're about to start designing a new public REST API for our finance team's compliance system. I want to make sure we don't ship something that's hard to use. Help me figure out what we actually need",
+    "should_trigger": true
+  },
+  {
+    "query": "my team owns the internal feature flag service at acme corp and we're rebuilding it from scratch. last version was confusing for product engineers. how should i approach the redesign?",
+    "should_trigger": true
+  },
+  {
+    "query": "i need to build a Slack bot that helps the support team triage tickets faster. Currently they're drowning. before I write code can you help me think through it?",
+    "should_trigger": true
+  },
+  {
+    "query": "my company wants me to design a new data pipeline that ingests customer events from 3 sources and outputs them to our warehouse for the analytics team to query. they've complained the current setup is hard to use",
+    "should_trigger": true
+  },
+  {
+    "query": "starting a small indie game project — a turn-based puzzle game for mobile. I want to think about the player experience before I touch unity",
+    "should_trigger": true
+  },
+  {
+    "query": "we're refactoring our notification service. it currently sends way too many emails and users are unsubscribing. need to redesign before just tweaking thresholds",
+    "should_trigger": true
+  },
+  {
+    "query": "build me a persona for the primary user of my new task manager app — they're a busy product manager at a series B startup",
+    "should_trigger": false
+  },
+  {
+    "query": "what's in our existing UX discovery doc at docs/ux-discovery/payments-v2.md? summarize the personas section",
+    "should_trigger": false
+  },
+  {
+    "query": "the date picker on our checkout page is showing the wrong timezone for users in pacific time. find the bug in src/checkout/DatePicker.tsx and fix it",
+    "should_trigger": false
+  },
+  {
+    "query": "set up a github action that runs eslint and prettier on every PR, fails the build if there are errors",
+    "should_trigger": false
+  },
+  {
+    "query": "our /api/search endpoint is taking 3+ seconds at p95 and the postgres query plan shows a sequential scan. help me optimize it",
+    "should_trigger": false
+  },
+  {
+    "query": "upgrade our react app from react 17 to react 18, fix any deprecated patterns, and update the test suite",
+    "should_trigger": false
+  },
+  {
+    "query": "audit our auth middleware for OWASP top 10 vulnerabilities. specifically worried about session fixation and CSRF on /api/v2/admin/*",
+    "should_trigger": false
+  },
+  {
+    "query": "write API reference docs for the 12 endpoints in src/routes/billing/*.ts using the existing format in docs/api/users.md",
+    "should_trigger": false
+  },
+  {
+    "query": "i have a folder of 200 nps survey responses at /home/me/nps_q3_2025.csv with columns 'score', 'comment', 'segment'. help me synthesize them into themes",
+    "should_trigger": false
+  },
+  {
+    "query": "we're shipping the new dashboard next week. help me define the success metrics and instrumentation events",
+    "should_trigger": false
+  }
+]
