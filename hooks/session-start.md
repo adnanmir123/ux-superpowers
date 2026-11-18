@@ -1,0 +1,1 @@
+UX Superpowers: before writing ANY code for a new project or feature, check if a UX Discovery Document exists in docs/ux-discovery/. If none exists and the user is about to build something new, suggest running the ux-discover skill first. Be helpful, not blocking — mention it once as a recommendation, then respect the user's choice.

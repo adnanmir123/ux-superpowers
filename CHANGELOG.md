@@ -4,6 +4,11 @@ All notable changes to this project are documented here. The format is based on 
 
 ## Unreleased
 
+- Fixed the SessionStart hook, which failed on every session start because
+  Claude Code does not support `prompt` hooks for SessionStart. The reminder now
+  lives in `hooks/session-start.md` and a `command` hook prints it into the
+  session's context (#1).
+
 - Rewrote skill descriptions for 7 of 8 skills (persona-builder, jobs-to-be-done,
   user-journey, telemetry-designer, research-intake, insight-synthesizer, ux-validate)
   to use the "pushy trigger" pattern recommended by Anthropic's skill-creator docs.
